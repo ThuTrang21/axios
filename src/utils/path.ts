@@ -1,5 +1,5 @@
 const path = {
   HOME: "",
-  PRODUCT: "/product",
+  POST: "/posts/:id",
 };
 export default path;

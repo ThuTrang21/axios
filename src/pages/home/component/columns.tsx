@@ -1,6 +1,7 @@
 import { ColumnType } from "antd/es/table";
 import { DataType } from "./types";
 import { Button } from "antd";
+import { Link } from "react-router";
 
 export const columns: ColumnType<DataType>[] = [
     {
@@ -30,9 +31,11 @@ export const columns: ColumnType<DataType>[] = [
     {
       title: "Action",
       key: "action",
-      render: () => (
+      render: (record) => (
         <div className="flex gap-2">
-          <Button>Xem chi Tiết</Button>
+          <Link to={`/posts/${record.id}`}>
+            <Button>Xem chi tiết</Button>
+          </Link>
           <Button>Sửa</Button>
           <Button>Xóa</Button>
         </div>

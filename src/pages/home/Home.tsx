@@ -41,7 +41,8 @@ const Home = () => {
       try {
         setLoading(true);
         const response = await apis.apiGetPost();
-        setList(response); // `response` đã được xử lý qua interceptor
+        const data: DataType[] = response.data;
+        setList(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -51,7 +52,6 @@ const Home = () => {
 
     fetchData();
   }, []);
-
   return (
     <div className="w-full py-10">
       <div className="flex justify-evenly items-center mb-4">

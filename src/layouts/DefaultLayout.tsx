@@ -1,4 +1,4 @@
-import { Badge, Button, Input, Layout, Modal, Popover } from "antd";
+import { Badge, Button, Input, Layout, message, Modal, Popover } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import path from "../utils/path";
@@ -19,6 +19,7 @@ export const DefaultLayout = () => {
   useEffect(() => {
     if (loadingLogin) {
       setIsModalOpen(false); 
+      message.success("Đăng nhập thành công!");
     }
   }, [loadingLogin]);
   const menu = useMemo(

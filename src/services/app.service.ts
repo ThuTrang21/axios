@@ -5,11 +5,11 @@ export const appService = {
     getProducts: (): Promise<IProduct[]> =>
       privateRequest.request({
         method: 'GET',
-        url: '/products', // URL API
+        url: 'https://fakestoreapi.com/products', // URL API
       }),
       getProduct: ({ id }: { id: string }):Promise<IProduct> =>
         privateRequest.request({
           method: 'GET',
-          url: `/products/${id}`, // URL API
+          url: `https://fakestoreapi.com/products/${id}`, // URL API
         }),
   };

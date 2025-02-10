@@ -4,7 +4,7 @@ import { get, isEmpty } from 'lodash';
 import { trimObjectValues } from './helpers';
 
 const requestConfig = {
-  baseURL: 'https://fakestoreapi.com/',
+  baseURL: '',
   withCredentials: false,
   timeout: 60000,
 };

@@ -11,3 +11,6 @@ export interface IListResponse<T> {
   }
 
   export type CreateData<T> = Omit<T, keyof IDefaultData>;
+
+  
+export type AnyType = any;

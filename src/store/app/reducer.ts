@@ -9,6 +9,10 @@ export default function appReducer(
 ) {
   return produce(state, (draft) => {
     switch (action.type) {
+      case types.SET_NAVIGATE_FUNCTION:
+        draft.navigate = action.payload;
+        break;
+
       case types.GET_PRODUCTS:
         draft.isLoading = true;
         break;

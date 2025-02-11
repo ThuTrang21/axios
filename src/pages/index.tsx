@@ -7,6 +7,7 @@ import { Spin } from "antd";
 import RootLayout from "../layouts/RootLayout";
 import { DefaultLayout } from "../layouts/DefaultLayout";
 import { Cart } from "./cart";
+import { UploadImage } from "./upload";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
           { index: true, element: <Home /> },
           { path: path.PRODUCT, element: <ProductDetail /> },
           { path: path.CART, element: <Cart /> },
+          {path:path.UPLOAD,element:<UploadImage/>}
         ],
       },
     ],

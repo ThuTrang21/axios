@@ -44,6 +44,10 @@ export const DefaultLayout = () => {
         label: "Home",
         route: path.HOME,
       },
+      {
+        label:"Tải hình ảnh",
+        route:path.UPLOAD,
+      }
     ],
     []
   );
@@ -84,11 +88,13 @@ export const DefaultLayout = () => {
         }}
       >
         <div className="flex flex-row justify-between w-full">
-          <div>
+          <div className="flex flex-row gap-5">
             {map(menu, (item) => (
-              <Button key={item.route} onClick={() => navigate(item.route)}>
+            <div key={item.route}>
+                <Button key={item.route} onClick={() => navigate(item.route)}>
                 {item.label}
               </Button>
+            </div>
             ))}
           </div>
           <div className="flex flex-row gap-10">

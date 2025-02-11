@@ -1,6 +1,6 @@
-import { Badge, Button, Input, Layout, message, Modal, Popover } from "antd";
+import { Avatar, Badge, Button, Dropdown, Input, Layout, MenuProps, message, Modal, Popover } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import path from "../utils/path";
 import { useEffect, useMemo, useState } from "react";
 import { map } from "lodash";
@@ -15,10 +15,26 @@ export const DefaultLayout = () => {
   const dispatch=useAppDispatch();
   const cart = useAppSelector(selectCart);
   const loadingLogin = useAppSelector(selectLoadingLogin);
+  const [user,setUser]=useState(false);
+  const handleLogout = () => {
+    setUser(false); 
+    message.success("Đăng xuất thành công!");
+  };
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <a onClick={handleLogout}> 
+        Đăng xuất
+      </a>
+      ),
+    },
+  ];
 
   useEffect(() => {
     if (loadingLogin) {
       setIsModalOpen(false); 
+      setUser(true);
       message.success("Đăng nhập thành công!");
     }
   }, [loadingLogin]);
@@ -124,7 +140,13 @@ export const DefaultLayout = () => {
               </Popover>
             </div>
             <div>
-              <Button onClick={showModal}>Đăng nhập</Button>
+              {user ? (
+            
+            <Dropdown menu={{ items }} placement="bottomRight" arrow>
+    <Avatar  icon={<UserOutlined />} />
+      </Dropdown>
+            
+            ):(<Button onClick={showModal}>Đăng nhập</Button>)}
               <Modal
                 title="Đăng nhập"
                 open={isModalOpen}

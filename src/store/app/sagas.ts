@@ -4,7 +4,7 @@ import { call, put, select, takeLatest } from "redux-saga/effects";
 import { getProductFail, getProductsFail, getProductsSuccess, getProductSuccess } from "./actions";
 import { appService } from "../../services/app.service";
 import { withCallback } from "redux-saga-callback";
-import { NavigateFunction } from "react-router";
+import { NavigateFunction } from "react-router-dom";
 import { AnyType } from "../../interfaces/common";
 import { selectNavigate } from "./selectors";
 import * as types from "./types";
